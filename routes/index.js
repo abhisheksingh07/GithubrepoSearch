@@ -148,7 +148,7 @@ User.findOne({_id:user._id},function(err,data){
 
 	  SearchItem.UserId = data._id;
 	  SearchItem.save();
-	  user.search.push(SearchItem);
+	  //user.search.push(SearchItem);
 	  user.save();
   });
 });
@@ -160,11 +160,8 @@ User.findOne({_id:user._id},function(err,data){
 			var a = data.search;
 			console.log(a);
 			var b = a.reverse();
-			console.log(b);
-			var d = b.slice(0,5);
-			console.log(d);
 			res.render('history',
-			{title:'History',user:user,b:b,d:d}
+			{title:'History',user:user,b:b}
 			);
 		});
 	})
