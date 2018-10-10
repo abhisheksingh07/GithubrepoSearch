@@ -148,7 +148,7 @@ User.findOne({_id:user._id},function(err,data){
 
 	  SearchItem.UserId = data._id;
 	  SearchItem.save();
-	  //user.search.push(SearchItem);
+	  user.search.push(SearchItem);
 	  user.save();
   });
 });
