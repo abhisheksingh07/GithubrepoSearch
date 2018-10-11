@@ -127,8 +127,7 @@ router.post('/search',ensureAuthenticated,function(req,res){
   url: 'https://api.github.com/search/repositories',
   qs: { q: searchTopic },
   headers:  
-   {  'client_id':'56627343c6015368de4a',
-   'client_seceret':'3359482192795cf98f478fe60fb2a092811d52fc',
+   {  
      'Cache-Control': 'no-cache',
 	 'User-Agent': 'node.js',
      Accept: 'application/vnd.github.mercy-preview+json' } };
