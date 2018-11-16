@@ -107,18 +107,27 @@ router.post('/login', (req, res, next) => {
     successRedirect:'/dashboard',
     failureRedirect:'/login',
     failureFlash: true,
-	error_msg:'Create the account first',
+  	error_msg:'Create the account first',
   })(req, res, next);
 });
 
 //logedin page or dashboard
 router.get('/dashboard',ensureAuthenticated,function(req,res){
+  console.log(req.body);
   res.render('dashboard',
   {title:"Search Box",
   user:req.user,
+  name:req.body.topic,
   url:'/search', data:null});
 });
 
+router.get('/search',ensureAuthenticated,function(req,res){
+  console.log(req.body);
+  res.render('dashboard',{title:"Search Box",
+  user:req.user,
+  name:req.body.topic,
+  url:'/search', data:null})
+})
 router.post('/search',ensureAuthenticated,function(req,res){
 	var user = req.user; 
 	var id = user._id;
@@ -135,10 +144,14 @@ router.post('/search',ensureAuthenticated,function(req,res){
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
   console.log(body);
+  var g = body;
+  var l = body.length
+  var b = JSON.parse(body)
+  console.log(b);
  var d = body.total_count;
  console.log(d);
   res.render('dashboard',{Searchquery:body,title:'search',
-  url:'/search', data:body});
+  url:'/search', data:b, result:g, l:l, name:req.body.topic});
 });
 var SearchItem = new Search({
 	stuff:searchTopic,
