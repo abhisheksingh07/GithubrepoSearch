@@ -17,42 +17,22 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongoose = require('mongoose');
 // var url = require('./config/database');
 
- 
-//database connection file
 mongoose.connect('mongodb://absingh:ab2407@ds225253.mlab.com:25253/serverguyassignment', { useNewUrlParser: true})
   .then(() =>  console.log('connection succesful'))
   .catch((err) => console.error(err));
 
-  
+ 
 var index= require('./routes/index');
 
 var app = express();
 
-// app.use(helmet());
-// app.use(nosniff());
-// app.use(xssFilter());
-// app.use(helmet.iexss());
-// app.use(helmet.csp());
-// app.use(helmet.xframe('someorigin'));
-// app.use(helmet.cacheControls());
 app.use(logger('dev'));
 
-//Security 
-
-// app.use(helmet());
-// app.use(helmet.xssFilter({ setOnOldIE: true }));
-// app.use(helmet.frameguard('deny'));
-// app.use(helmet.hidePoweredBy());
-// app.use(helmet.ieNoOpen());
-// app.use(helmet.noSniff());
-// app.use(helmet.noCache());
 
 
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.set('trust proxy', 1);
-// Express Session
 app.use(cookieParser())
 app.use(session({
     secret: 'NeverLie12345Dolie',
@@ -93,7 +73,7 @@ app.use(expressValidator({
 
 app.use('/', index);
 
-// Start Server
+
 var server = app.listen('3000',function(){
   console.log("server will start on 3000 port")});
   
