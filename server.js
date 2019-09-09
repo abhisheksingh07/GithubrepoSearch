@@ -17,7 +17,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongoose = require('mongoose');
 // var url = require('./config/database');
 
-mongoose.connect('mongodb://absingh:ab2407@ds225253.mlab.com:25253/serverguyassignment', { useNewUrlParser: true})
+mongoose.connect('mongodb://<username>:<password>@ds225253.mlab.com:25253/<dbname>', { useNewUrlParser: true})
   .then(() =>  console.log('connection succesful'))
   .catch((err) => console.error(err));
 
