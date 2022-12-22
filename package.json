@@ -39,7 +39,7 @@
     "flash": "^1.1.0",
     "helmet": "^3.13.0",
     "https": "^1.0.0",
-    "jsonwebtoken": "^8.3.0",
+    "jsonwebtoken": "^9.0.0",
     "logger": "0.0.1",
     "mongodb": "^3.1.1",
     "mongoose": "^5.2.7",
